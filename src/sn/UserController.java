@@ -1,25 +1,21 @@
 package sn;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class UserController {
 
-    //emulates db
-    List<User> users = new ArrayList<>();
+    UserDAO userDAO = new UserDAOImpl();
 
     User register(User user) {
         //dbConnection.save(user)
-        users.add(user);
+        userDAO.save(user);
         return user;
     }
 
     //HOMEWORK
     //TODO add to friend method
     //void addToFriend(User fromUser, User toUser)
-
-    //for test
-    public List<User> getUsers() {
-        return users;
+    void addToFriend(User fromUser, User toUser) {
+        fromUser.getFriends().add(toUser);
+        toUser.getFriends().add(fromUser);
     }
 }
