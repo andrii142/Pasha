@@ -5,7 +5,7 @@ import java.util.Set;
 
 public class UserDAOImpl implements UserDAO {
     //emulates db
-    Set<User> users = new HashSet<>();
+    private static Set<User> users = new HashSet<>();
 
     @Override
     public User save(User user) {
@@ -13,7 +13,26 @@ public class UserDAOImpl implements UserDAO {
         return user;
     }
 
-    public Set<User> getUsers() {
+    @Override
+    public void setLogin(User user) {
+        if (user.isLogged()) user.setLogged(false);
+        else user.setLogged(true);
+
+        users.remove(user);
+        users.add(user);
+    }
+
+    @Override
+    public User get(String name, String psw) {
+        for (User user : users) {
+            if (user.getName().equals(name) && user.getPassword().equals(psw))
+                return user;
+        }
+        return null;
+    }
+
+    @Override
+    public Set<User> getAll() {
         return users;
     }
 }

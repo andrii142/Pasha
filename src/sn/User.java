@@ -18,6 +18,9 @@ public class User {
 
     private boolean isActive;
 
+    //temlporary
+    private boolean isLogged;
+
     public User(long id, String name, Gender gender, String password, String city) {
         this.id = id;
         this.name = name;
@@ -36,6 +39,10 @@ public class User {
                 "name='" + name + '\'' +
                 ", city='" + city + '\'' +
                 '}';
+    }
+
+    public long getId() {
+        return id;
     }
 
     public String getName() {
@@ -108,5 +115,13 @@ public class User {
 
     public void setActive(boolean active) {
         isActive = active;
+    }
+
+    public boolean isLogged() {
+        return isLogged;
+    }
+
+    public void setLogged(boolean logged) {
+        isLogged = logged;
     }
 }
