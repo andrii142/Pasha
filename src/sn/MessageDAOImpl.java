@@ -5,16 +5,16 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class MessageDAOImpl implements MessageDAO {
+public class MessageDAOImpl extends AbstractDAOImpl<Message> implements MessageDAO {
 
     private static List<Message> messages = new ArrayList<>();
 
 
     @Override
-    public Message save(Message message) {
-        messages.add(message);
-        return message;
+    public Message saveMessage(Message message) {
+        return save(message);
     }
+
 
     @Override
     public List<Message> getByUserId(long id) {

@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface MessageDAO {
 
-    Message save(Message message);
+    Message saveMessage(Message message);
 
     List<Message> getByUserId(long id);
 

@@ -1,11 +1,12 @@
 package sn;
 
+import java.util.List;
 import java.util.Set;
 
 public interface UserDAO {
     User save(User user);
 
-    Set<User> getAll();
+    List<User> getAll();
 
     User get(String name, String psw);
 

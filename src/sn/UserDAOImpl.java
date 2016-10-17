@@ -1,11 +1,13 @@
 package sn;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class UserDAOImpl implements UserDAO {
     //emulates db
-    private static Set<User> users = new HashSet<>();
+    private static List<User> users = new ArrayList<>();
 
     @Override
     public User save(User user) {
@@ -32,7 +34,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public Set<User> getAll() {
+    public List<User> getAll() {
         return users;
     }
 }
